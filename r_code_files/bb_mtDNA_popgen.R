@@ -10,9 +10,9 @@ library(ape)
 source("bb_functions_popgen.R", local = TRUE)
 
 #read file of QC mitochondrial DNA
-qc_mdna <- read.csv("QCBears_mDNA.csv")
+qc_mdna <- read.csv("~/output_files/QCBears_mDNA.csv")
 #read file of metadata for QC bears
-quality_bears <- read.csv("/Users/mayaweissman/Documents/GitHub/brzeski_bears/QCBears_fulldata.csv")
+quality_bears <- read.csv("~/output_files/QCBears_fulldata.csv")
 
 ### Data Cleaning and Prep ###
 
