@@ -6,7 +6,7 @@ library(hierfstat)
 source("bb_functions_popgen.R", local = TRUE)
 
 # Files
-path_to_files <- "/Users/mayaweissman/Documents/GitHub/brzeski_bears/Black Bear Genomics Analytics/Parentage analyses/"
+path_to_files <- "~/output_files/"
 qc_bears_file <- "QCBears_fulldata_v2.csv"
 
 # load nuclear dna file
