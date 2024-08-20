@@ -5,7 +5,7 @@ library(viridis)
 
 source('bb_functions_datafiltering.R', local = TRUE) #loads necessary custom built functions
 
-path_to_files <- "/Users/mayaweissman/Documents/GitHub/brzeski_bears/Black Bear Genomics Analytics/Parentage analyses/"
+path_to_files <- "~/input_data_files/"
 
 # file names
 genos_file <- "GT_BB2122_nuc.csv"
