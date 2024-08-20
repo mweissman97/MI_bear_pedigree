@@ -79,5 +79,5 @@ quality_bears <- full_dataframe[full_dataframe$Sample %in% post_qc_bears,!(colna
 quality_bears <- quality_bears[,!(colnames(quality_bears) == "GeneticSex")] #remove junk column GeneticSex
 quality_bears <- distinct(quality_bears, Sample, .keep_all = TRUE) #removes potentially duplicate bears
 
-write_csv(quality_bears, "QCBears_fulldata_final.csv")
-write_csv(full_dataframe, "AllBears_fulldata_final.csv")
+write.csv(quality_bears, "~/output_files/QCBears_fulldata_v2.csv")
+write.csv(full_dataframe, "~/output_files/AllBears_fulldata_final.csv")
