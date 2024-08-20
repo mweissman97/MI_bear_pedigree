@@ -67,7 +67,7 @@ km <- kmeans(snps_only_imputed, k, iter.max = 10, nstart = 1)
 # combine k clusters with the full dataframe
 popgen_full <- cbind(popgen_full, cluster = km$cluster)
 
-write.csv(popgen_full, "nuclear_popgen_clusters.csv")
+write.csv(popgen_full, "~/output_files/nuclear_popgen_clusters.csv")
 
 ### Other Popgen ### 
 
@@ -95,7 +95,7 @@ gdist_df2$County1 <- row.names(gdist_df2)
 gdist_long <- gather(gdist_df2, key = "County2", value = "Fst", Baraga:Drummond)
 gdist_long$color <- ifelse(gdist_long$County1 == "Drummond" | gdist_long$County2 == "Drummond", "black", "white")
 
-write.csv(gdist_long, "nuc_gdist_fst.csv")
+write.csv(gdist_long, "~/output_files/nuc_gdist_fst.csv")
 
 # Isolation by Distance
 
@@ -120,7 +120,7 @@ dgen_df <- gather(dgen_df, key = "Bear2", value = "gen_dist", 1:1803)
 dist_long_df <- merge(dgen_df, dgeo_df, by = c("Bear1", "Bear2"))
 dist_long_df <- distinct(dist_long_df, gen_dist, geo_dist, .keep_all = TRUE)
 
-write.csv(dist_long_df, "nuc_popgen_ibd.csv")
+write.csv(dist_long_df, "~/output_files/nuc_popgen_ibd.csv")
 
 # You can also check for IBD using the 
 ibd <- mantel.rtest(dgen, dgeo)
