@@ -6,7 +6,7 @@ source("bb_functions_popgen.R", local = TRUE)
 source("bb_ckmrsim_functions.R", local = TRUE)
 
 ### Load data ###
-path_to_files <- "/Users/mayaweissman/Documents/GitHub/brzeski_bears/"
+path_to_files <- "~/output_files/"
 qc_bear_filename <- "QCBears_fulldata_v2.csv"
 
 quality_bears <- read.csv(paste(path_to_files, qc_bear_filename, sep = ""))
