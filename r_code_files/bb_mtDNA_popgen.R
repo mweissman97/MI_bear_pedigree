@@ -65,7 +65,7 @@ km_7 <- kmeans(snps_only_imputed_mDNA, 7, iter.max = 10, nstart = 1)
 popgen_full_mDNA <- cbind(popgen_full_mDNA, cluster_3 = km_3$cluster, cluster_7 = km_7$cluster)
 
 # Write to csv
-write.csv(popgen_full_mDNA, "mito_popgen_clusters.csv")
+write.csv(popgen_full_mDNA, "~/output_files/mito_popgen_clusters.csv")
 
 ### Other Popgen ### 
 
@@ -88,7 +88,7 @@ gdist_df_mdna_2$BMU1 <- row.names(gdist_df_mdna_2)
 gdist_long_mtDNA <- gather(gdist_df_mdna_2, key = "BMU2", value = "Dch", 1:7)
 gdist_long_mtDNA$color <- ifelse(gdist_long_mtDNA$BMU1 == "Drummond" | gdist_long_mtDNA$BMU2 == "Drummond", "black", "white")
 
-write.csv(gdist_long_mtDNA, "mtDNA_gdist_long.csv")
+write.csv(gdist_long_mtDNA, "~/output_files/mtDNA_gdist_long.csv")
 
 mDNA_popgen_stats <- basic.stats(mDNA_hier_df, diploid = F)
 
