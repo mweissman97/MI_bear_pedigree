@@ -33,7 +33,7 @@ qc1_BB_loci <- BB_loci[rownames(BB_loci) %in% quality_bear_ids,]
 # find snps with low coverage
 id_vec <-  colnames(qc1_BB_loci[1:ncol(qc1_BB_loci)])
 perloc_propna <- propna_qual_filter(qc1_BB_loci, NA, id_vec, "colwise")
-write.csv(perloc_propna, "mtDNA_perlocna.csv")
+write.csv(perloc_propna, "~/output_files/mtDNA_perlocna.csv")
 
 bad_snps <- perloc_propna$ids[perloc_propna$prop_na > 0.5] #list of SNPs with coverage for less than half of individuals
 
@@ -43,7 +43,7 @@ qc1_BB_loci <- qc1_BB_loci[,!colnames(qc1_BB_loci) %in% bad_snps]
 # find bears with low coverage
 bear_id_vec <-  rownames(qc1_BB_loci)
 perbear_propna <- propna_qual_filter(qc1_BB_loci, NA, bear_id_vec, "rowwise")
-write.csv(perbear_propna, "mtDNA_perbearna.csv")
+write.csv(perbear_propna, "~/output_files/mtDNA_perbearna.csv")
 
 
 bad_bears <- perbear_propna$ids[perbear_propna$prop_na > 0.5] #list of SNPs with coverage for less than half of individuals
@@ -52,4 +52,4 @@ bad_bears <- perbear_propna$ids[perbear_propna$prop_na > 0.5] #list of SNPs with
 qc1_BB_loci <- qc1_BB_loci[!rownames(qc1_BB_loci) %in% bad_bears,]
 
 #write qc mitochondrial dna to CSV file
-write_csv(qc1_BB_loci, "QCBears_mDNA.csv")
+write.csv(qc1_BB_loci, "~/output_files/QCBears_mDNA.csv")
