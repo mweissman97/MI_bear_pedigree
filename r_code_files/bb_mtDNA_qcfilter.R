@@ -5,7 +5,7 @@ library(tidyverse)
 source("bb_functions_popgen.R", local = TRUE)
 
 # filenames
-path_to_files <- "/Users/mayaweissman/Documents/GitHub/brzeski_bears/Black Bear Genomics Analytics/Parentage analyses/"
+path_to_files <- "~/input_data_files"
 mDNA_file <- "BB_2022_001_calls_annotated_maf0.1_sequoia.vcf"
 
 ### Prep mitochondrial Data ###
@@ -21,7 +21,7 @@ BB_loci<-as.data.frame(BB_loci)
 BB_loci[] <- lapply(BB_loci, as.character)
 
 # read in post QC df from nuclear data to get IDs of high quality individuals
-quality_bears <- read.csv("/Users/mayaweissman/Documents/GitHub/brzeski_bears/QCBears_fulldata.csv")
+quality_bears <- read.csv("~/output_files/QCBears_fulldata.csv")
 quality_bear_ids <- sub("_R1$", "", quality_bears$Sample) #reformats ids to match
 quality_bear_ids <- paste(quality_bear_ids, "_align_sorted.bam", sep="")
 quality_bears$Sample <- quality_bear_ids
