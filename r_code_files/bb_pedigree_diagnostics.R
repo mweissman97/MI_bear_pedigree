@@ -72,7 +72,7 @@ ggplot(PO_U_logls, aes(x = logl_ratio, fill = true_relat)) +
   ggtitle("Parent-Offspring / Unrelated") +
   theme_bw()
 
-write.csv(PO_U_logls, "PO_U_logls.csv")
+write.csv(PO_U_logls, "~/output_files/PO_U_logls.csv")
 
 #FS vs. unrelated
 FS_U_logls <- extract_logls(ex1_Qs,
@@ -123,4 +123,4 @@ error_rate_df$n_loc <- round(error_rate_df$prop_loc * length(unique(full_afreqs_
 error_rate_df$nloc_lab <- paste(error_rate_df$n_loc, error_rate_df$prop_loc, sep = ", ")
 error_rate_df$nloc_lab <- factor(error_rate_df$nloc_lab, levels = c("211, 1", "190, 0.9", "165, 0.78", "158, 0.75", "106, 0.5" , "53, 0.25"))
 
-write.csv(error_rate_df, "CKMRsim_error_rates.csv")
+write.csv(error_rate_df, "~/output_files/CKMRsim_error_rates.csv")
