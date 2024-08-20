@@ -7,7 +7,7 @@ library(ggplot2)
 source("bb_functions_pedigree_pairs.R", local = TRUE)
 
 # Load needed data
-quality_bears <- read.csv("/Users/mayaweissman/Documents/GitHub/brzeski_bears/QCBears_fulldata_v2.csv")
+quality_bears <- read.csv("~/output_files/QCBears_fulldata_v2.csv")
 # Add a harvest year column where harvest year is numeric
 quality_bears$Harvest_Year <- as.numeric(substring(quality_bears$Harvest_Date, 1,4))
 
@@ -72,7 +72,7 @@ seqped_all <- rbind(seqped_noap_po_pair_df, seqped_ap_po_pair_df, seqped_noap_fu
 seqped_all$rel_type <- factor(seqped_all$rel_type, levels = c("PO_M", "PO_P", "FS", "HS_M", "HS_P"))
 seqped_all$LLR_bin <- ifelse(seqped_all$LLR >0, ">0", "negative")
 seqped_all$model <- paste(seqped_all$module, ", ", seqped_all$age_prior, sep = "")
-write.csv(seqped_all, "seq_allpeds.csv")
+write.csv(seqped_all, "~/output_files/seq_allpeds.csv")
 
 ### Investigate overlap between models ###
 # Construct pedigree overlap dataframe - age prior vs. no age prior
@@ -141,7 +141,7 @@ final_pair_df[final_pair_df == "XX"] <- "Female"
 final_pair_df[final_pair_df == "XY"] <- "Male"
 final_pair_df$LLR_bin <- ifelse(final_pair_df$LLR >0, ">0", "negative")
 
-write.csv(file = "BB_POpairs_final.csv", final_pair_df)
+write.csv(file = "~/output_files/BB_POpairs_final.csv", final_pair_df)
 # final_pair_df <- read.csv("final_pair_df")
 
 # Visualize how many PO pairs there are
