@@ -56,8 +56,8 @@ Code is written using the following languages and packages:
 
 [R code files](https://github.com/mweissman97/MI_bear_pedigree/tree/100185359ba796c4bf1fad4b714d74868d14afa2/r_code_files):
 
-| R File                          | Description                                                                              |
-|------------------------------------|------------------------------------|
+| R File Name                                | Description                                                                                                                                 |
+|----------------------------------------|--------------------------------|
 | bb_functions_datafiltering.R    | Custom built data filtering functions                                                    |
 | bb_nDNA_qcfilter.R              | Filters samples based on nuclear DNA                                                     |
 | bb_mtDNA_qcfilter.R             | Filters and analyzes mitochondrial DNA                                                   |
@@ -70,8 +70,8 @@ Code is written using the following languages and packages:
 
 [Output Files](https://github.com/mweissman97/MI_bear_pedigree/tree/100185359ba796c4bf1fad4b714d74868d14afa2/output_files):
 
-| Output File                 | Description                                                                                                          |
-|------------------------------------|------------------------------------|
+| Output File Name                                | Description                                                                                                                                 |
+|----------------------------------------|--------------------------------|
 | QCBears_fulldata_final.csv  | Pruned QC bears, snps, and life history data                                                                         |
 | AllBears_fulldata_final.csv | All bears, with SNPS and life history                                                                                |
 | QCBears_mDNA.csv            | Pruned mitochondrial DNA snps for QC bears                                                                           |
