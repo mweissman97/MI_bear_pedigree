@@ -19,6 +19,8 @@
 ## Abstract <a name="about-the-project"></a>
 The goal of this project was to establish a Close-Kin-Mark-Recapture (CKMR) framework for Michigan’s Upper Peninsula (UP) black bear population. Key to this endeavor was the development of a streamlined genotyping method capable of confidently assigning familial relationships of harvested bears, from which DNA samples were collected. This bioinformatic pipeline uses the R Programming Language to filter both nuclear and mitochondrial SNP data, determinesthe panel’s confidence in assigning relatedness amongst these data, and, finally, construct a pedigree to output a list of all Parent-Offspring pairs.
 
+This work was conducted with the [Brzeski Lab](https://www.mtu.edu/forest/about/faculty-staff/faculty/brzeski/) at Michigan Technological University, and in partnership with the Michigan [Department of Natural Resources](https://www.michigan.gov/dnr).
+
 For more, see the R Markdown PDF.
 
 ### Built With <a name="built-with"></a>
@@ -62,7 +64,6 @@ Code is written using the following languages and packages:
 | bb_functions_popgen.R           | Custom built functions for popgen analyses                                               |
 | bb_popgen_nuc.R                 | Performs popgen analyses on nuclear DNA                                                  |
 | bb_mtDNA_popgen.R               | Performs popgen analyses on mitochondrial DNA                                            |
-| bb_mDNA_haplotypes.R.           | Assigns mitochondrial haplotypes and analyzes haplotype network. *not working right now* |
 | bb_pedigree_diagnostics.R       | Uses CKMRsim package to test inference power of nuclear DNA in resolving pedigree        |
 | bb_functions_pedigree_pairs.R   | Custom built functions for analyzing sequoia pedigrees                                   |
 | bb_sequoia_pedigree_inference.R | Creates pedigree using sequoia package                                                   |
