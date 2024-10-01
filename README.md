@@ -21,7 +21,7 @@ The goal of this project was to establish a Close-Kin-Mark-Recapture (CKMR) fram
 
 This work was conducted with the [Brzeski Lab](https://www.mtu.edu/forest/about/faculty-staff/faculty/brzeski/) at Michigan Technological University, and in partnership with the Michigan [Department of Natural Resources](https://www.michigan.gov/dnr).
 
-For more, see the R Markdown PDF.
+For more, see the [R Markdown Guide](https://github.com/mweissman97/MI_bear_pedigree/blob/c679d81282330d025a48b15a3a953efbd045f683/bb_kinship_inference-compressed.pdf).
 
 ### Built With <a name="built-with"></a>
 
