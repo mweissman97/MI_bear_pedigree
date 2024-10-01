@@ -1,4 +1,4 @@
-# Performing pedigree inference in order to develop replacement population index for Michigan’s Upper Peninsula Black Bears
+# Performing pedigree inference on Michigan’s Upper Peninsula Black Bears
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -18,6 +18,8 @@
 <!-- ABOUT THE PROJECT -->
 ## Abstract <a name="about-the-project"></a>
 The goal of this project was to establish a Close-Kin-Mark-Recapture (CKMR) framework for Michigan’s Upper Peninsula (UP) black bear population. Key to this endeavor was the development of a streamlined genotyping method capable of confidently assigning familial relationships of harvested bears, from which DNA samples were collected. This bioinformatic pipeline uses the R Programming Language to filter both nuclear and mitochondrial SNP data, determinesthe panel’s confidence in assigning relatedness amongst these data, and, finally, construct a pedigree to output a list of all Parent-Offspring pairs.
+
+For more, see the R Markdown PDF.
 
 ### Built With <a name="built-with"></a>
 
