@@ -9,8 +9,7 @@ path_to_files <- "~/input_data_files/"
 
 # file names
 genos_file <- "GT_BB2122_nuc.csv"
-lh_21_file <- "2021_CKMR_Sample_Data_age.xlsx"
-lh_22_file <- "2022_CKMR_Sample_Data_age.xlsx"
+lh_file <- "2122_CKMR_Sample_Data.csv"
 ndna_meta_file <- "BB2122_compiled_R1_genotypes.csv"
 
 ### Load genomic data ###
@@ -20,9 +19,7 @@ genos <- genos %>%
   mutate(prop_SNPs = 1-(sum(c_across(2:225) == -9)/224)) #finds per individual proportion of snps with missing data, which is encoded as a -9
 
 ### Load lifehistory Data ###
-lh_21 <- read_excel(paste(path_to_files, lh_21_file, sep = ""))
-lh_22 <- read_excel(paste(path_to_files, lh_22_file, sep = ""))
-full_lh <- create_combined_lh(lh_21, lh_22)
+full_lh <- read.csv(paste(path_to_files, lh_file))
 
 ### Load meta data ###
 meta <- read.csv(paste(path_to_files, ndna_meta_file, sep = ""))
@@ -76,7 +73,6 @@ bad_snps <- ndna_per_snp$ids[ndna_per_snp$prop_na > 0.5] #get a list of snps wit
 
 ### Create QC dataframe for downstream analyses ###
 quality_bears <- full_dataframe[full_dataframe$Sample %in% post_qc_bears,!(colnames(full_dataframe) %in% bad_snps)] #create quality bears data frame by keeping only QC bears and removing snps with low coverage
-quality_bears <- quality_bears[,!(colnames(quality_bears) == "GeneticSex")] #remove junk column GeneticSex
 quality_bears <- distinct(quality_bears, Sample, .keep_all = TRUE) #removes potentially duplicate bears
 
 ### Remove bears with missing age
