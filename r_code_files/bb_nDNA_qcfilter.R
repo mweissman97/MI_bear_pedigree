@@ -75,8 +75,5 @@ bad_snps <- ndna_per_snp$ids[ndna_per_snp$prop_na > 0.5] #get a list of snps wit
 quality_bears <- full_dataframe[full_dataframe$Sample %in% post_qc_bears,!(colnames(full_dataframe) %in% bad_snps)] #create quality bears data frame by keeping only QC bears and removing snps with low coverage
 quality_bears <- distinct(quality_bears, Sample, .keep_all = TRUE) #removes potentially duplicate bears
 
-### Remove bears with missing age
-quality_bears <- subset(quality_bears, !is.na(Age))
-
 write.csv(quality_bears, "~/output_files/QCBears_fulldata_final.csv")
 write.csv(full_dataframe, "~/output_files/AllBears_fulldata_final.csv")
