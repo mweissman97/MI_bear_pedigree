@@ -1,5 +1,7 @@
 # Performing pedigree inference on Michigan’s Upper Peninsula Black Bears
 
+[![DOI](https://zenodo.org/badge/845219890.svg)](https://doi.org/10.5281/zenodo.19488497)
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
