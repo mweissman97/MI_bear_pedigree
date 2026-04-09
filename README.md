@@ -62,43 +62,18 @@ Code is written using the following languages and packages:
 * **GT_BB2122_nuc.csv** - CSV with nDNA snps.
   * Rownames - long sample IDs (e.g. BB21_1000_MTU20Oct23_R1)
   * Columns NW_025576331_1_3826608:NW_025578505_1_8669226 - SNP data, where 0 = no copies of variant, 1 = heterozygous, 2 = homozygous with variant, -9 = missing read.
-* **2021_CKMR_Sample_Data_age.xlsx** and **2022_CKMR_Sample_Data_age.xlsx** - Excel sheets with life history data for samples collected in 2021 and 2022, respectively
-  * SeqID - shortened sample ID (e.g. BB21-1000)
-  * Unique_Bear - alternate unique bear ID, not used in this workflow
-  * Putty_ID - empty column
+* **2122_CKMR_Sample_Data.csv** - table with life history data for samples collected in 2021 and 2022
   * Sequoia_ID - transformed sample ID to use underscores to match GT_BB2122_nuc.csv and be compatible with the sequoia package (e.g. BB21_1000)
-  * database_ID - alternate unique bear ID, not used in this workflow
-  * sample_ID - alternate unique bear ID, not used in this workflow
-  * RecordID - alternate unique bear ID, not used in this workflow
   * Season_Year - year sample was harvested
   * Species - common name for species (i.e. "Black Bear")
-  * Harvest_Date - date sample was harvested formatted (e.g. 8-Sep-21)
+  * Harvest_Date - date sample was harvested (e.g. 8-Sep-21)
   * How_Taken - how sample was harvested (e.g. "Hunting")
   * Harvest_BMU - Bear Management Unit where sample was harvested
   * Harvest_County - County where sample was harvested
-  * Harvest_Town - 
-  * Harvest_Range
-  * Harvest_Section - numerical identifier for harvest section  
-  * Land_Ownership - who owns the land where the bear was harvested (i.e. Public, Private)
   * Registration_Sex - sex identified during registration, may differ from genetic sex
-  * EarTags	Left_Ear_Number
-  * Right_Ear_Number
-  * Registration_Seal
-  * Sample_Number
-  * Station_Name
-  * Registration_Date
-  * Tribal_license
-  * GeneticSex
-  * Age
-  * Age_Error
-  * BirthYear
-  * tissue_type
-  * DuplicateID
-  * Flag_Code
-  * tooth_digest_priority
-  * Latitude
-  * Longitude
-  * Location_Code
+  * BirthYear - estimated year the bear was born based on sample age
+  * Latitude - approximate decimal latitude coordinates where sample was harvested
+  * Longitude - approximate decimal longitude coordinates where sample was harvested
 * **BB2122_compiled_R1_genotypes.csv** - CSV of raw nuclear DNA. Includes meta data (i.e. IFI) and sequencing of 5 genetic sex markers
   * Sample - long sample IDs (e.g. BB21_1000_MTU20Oct23_R1)
   * Raw Reads - number of raw reads during genotyping
@@ -118,30 +93,16 @@ Code is written using the following languages and packages:
   * Uam_SEXY1:Uam_sry2 - genotypes for sex markers; XX = female, XY = male, 0 = missing
   * Genetic_Sex - most common sex from sex marker columns (Uam_SEXY1:Uam_sry2)
   * sex_agreement_prop - fraction of sex markers (Uam_SEXY1:Uam_sry2) that agree with Genetic_Sex consensus
-  * Putty_ID
-  * sample_ID
-  * Season_Year
-  * Species
-  * Harvest_Date
-  * How_Taken
-  * Harvest_BMU
-  * Harvest_County
-  * Harvest_Town
-  * Harvest_Range
-  * Harvest_Section
-  * Land_Ownership
-  * Registration_Sex
-  * EarTags
-  * Left_Ear_Number
-  * Right_Ear_Number
-  * Registration_Seal
-  * Station_Name
-  * Tribal_license
-  * Age
-  * BirthYear
-  * Latitude
-  * Longitude
-  * Location_Code
+  * Season_Year - year sample was harvested
+  * Species - common name for species (i.e. "Black Bear")
+  * Harvest_Date - date sample was harvested (e.g. 8-Sep-21)
+  * How_Taken - how sample was harvested (e.g. "Hunting")
+  * Harvest_BMU - Bear Management Unit where sample was harvested
+  * Harvest_County - County where sample was harvested
+  * Registration_Sex - sex identified during registration, may differ from genetic sex
+  * BirthYear - estimated year the bear was born based on sample age
+  * Latitude - approximate decimal latitude coordinates where sample was harvested
+  * Longitude - approximate decimal longitude coordinates where sample was harvested
   * filter_remove - whether the sample passed quality control filters (i.e. "pass" or "fail")            
 * **QCBears_mDNA.csv** - Pruned mitochondrial DNA snps for QC bears
   * NC_003426.1_107:NC_003426.1_16604 - genotype matrix for mitochondrial DNA, where 0 = wild-type, 1 = variant, NA = missing
