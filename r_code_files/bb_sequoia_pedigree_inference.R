@@ -50,20 +50,21 @@ saveRDS(seqped_noap_full, "seqped_noap_full.rds")
 # Function get_pairs converts pedigree object to a data frame of pairs
 # Uses functions get_county_diff and make_sibship_df
 # Arguments: pedigree = a sequoia pedigree object, bear_df =  life history dataframe with columns BirthYear, Sample, Genetic_Sex, and Harvest_County
+# NEW ARGUMENT: also needs geno_seq, the genotype matrix
 # Output: ped_df_full = a dataframe of all pairs with columns bear1, bear2, LLR, rel_type, bear1_birthyear, bear2_birthyear, age_diff, bear1_sex, bear2_sex, bear1_county, bear2_county, county_difference
-seqped_noap_po_pair_df <- get_pairs(seqped_noap_po$Pedigree, quality_bears, "PO")
+seqped_noap_po_pair_df <- get_pairs(seqped_noap_po$Pedigree, quality_bears, geno_seq, "PO")
 seqped_noap_po_pair_df$module <- "PO only"
 seqped_noap_po_pair_df$age_prior <- "none"
 
-seqped_ap_po_pair_df <- get_pairs(seqped_ap_po$Pedigree, quality_bears, "PO")
+seqped_ap_po_pair_df <- get_pairs(seqped_ap_po$Pedigree, quality_bears, geno_seq, "PO")
 seqped_ap_po_pair_df$module <- "PO only"
 seqped_ap_po_pair_df$age_prior <- "yes ap"
 
-seqped_noap_full_pair_df <- get_pairs(seqped_noap_full$Pedigree, quality_bears, "full")
+seqped_noap_full_pair_df <- get_pairs(seqped_noap_full$Pedigree, quality_bears, geno_seq, "full")
 seqped_noap_full_pair_df$module <- "full ped"
 seqped_noap_full_pair_df$age_prior <- "none"
 
-seqped_ap_full_pair_df <- get_pairs(seqped_ap_full$Pedigree, quality_bears, "full")
+seqped_ap_full_pair_df <- get_pairs(seqped_ap_full$Pedigree, quality_bears, geno_seq, "full")
 seqped_ap_full_pair_df$module <- "full ped"
 seqped_ap_full_pair_df$age_prior <- "yes ap"
 
