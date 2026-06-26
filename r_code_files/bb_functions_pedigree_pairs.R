@@ -78,15 +78,21 @@ make_sibship_df <- function(pedigree){
 # Uses functions get_county_diff and make_sibship_df
 # Arguments: pedigree = a sequoia pedigree object, bear_df =  life history dataframe with columns BirthYear, Sample, Genetic_Sex, and Harvest_County
 # Output: ped_df_full = a dataframe of all pairs with columns bear1, bear2, LLR, rel_type, bear1_birthyear, bear2_birthyear, age_diff, bear1_sex, bear2_sex, bear1_county, bear2_county, county_difference
-get_pairs <- function(pedigree, bear_df, mod_type){
+get_pairs <- function(pedigree, bear_df, geno_df, mod_type){
   
   #get PO pairs
   po_pairs <- gather(pedigree, parent_sex, parent_id, dam:sire)
-  po_pairs <- po_pairs[!is.na(po_pairs$parent_id),]
-  po_pairs$LLR <- ifelse(po_pairs$parent_sex == "dam", po_pairs$LLRdam, po_pairs$LLRsire)
+  po_pairs <- po_pairs[!is.na(po_pairs$parent_id), c("id", "parent_sex", "parent_id")]
+  # 6.26 NEW STUFF
+  # For some reason, sequoia's pedigree is producing all NA values for LLR, so we are going to have to manually calculate them separately
+  # I am not including the pedigree as an argument, even though I could, because it ends up setting all of the relationships to avuncular, which might be part of the problem
+  llr_df <- CalcPairLL(po_pairs[, c("id", "parent_id")], GenoM = geno_df, Plot=FALSE)
+  po_pairs <- merge(po_pairs, llr_df, by = c("id", "parent_id"))
+  po_pairs <- po_pairs[, c("id", "parent_id", "parent_sex", "LLR", "TopRel")]
+  
   po_pairs <- po_pairs[!is.na(po_pairs$LLR),]
   
-  po_pairs <- po_pairs %>% rowwise() %>%
+  po_pairs <- subset(po_pairs, TopRel == "PO") %>% rowwise() %>%
     mutate(rel_type = ifelse(parent_sex == "dam", "PO_M", "PO_P"))
   po_pairs <- select(po_pairs, c("id", "parent_id", "LLR", "rel_type"))
   colnames(po_pairs) <- c("bear1", "bear2", "LLR", "rel_type")
